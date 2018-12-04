@@ -2,7 +2,6 @@ from  MySQLdb import connect, cursors
 import uuid
 import os
 
-
 class Database:
     def __init__(self):
         self.database_host = os.getenv("DATABASE_HOST") or "localhost"
