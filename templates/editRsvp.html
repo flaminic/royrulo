@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <section class="page-section about-heading">
+      <div class="container">
+        <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="/static/img/rsvp.jpg" alt="">
+        <div class="about-heading-content">
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper">{{person_details_info['guestName']}}</span>
+                  <span class="section-heading-lower">Te esperamos!</span>
+                </h2>
+                <form action={{"/register/" + person_details_info['id']}} method="post">
+                    <p>
+                        <b>Nombre y Apellido:</b>
+                        <input type = "text" name = "guestName" required value="{{ person_details_info['guestName'] }}" />
+                    </p>
+
+                    <p>
+                        <b>Email:</b>
+                        <input type = "email" name = "email" required value={{ person_details_info['email'] }} />
+                    </p>
+
+                     <p>
+                        <b>Cuántos son?</b>
+                    </p>
+                    <p>
+                         <input type="radio" name="people" id="none" value="0" required>
+                         <label class='mr-sm-2' for="none">No puedo ir</label>
+                         <input type="radio" name="people" id="one" value="1" required>
+                         <label class='mr-sm-2' for="one">Solo yo</label>
+                         <input type="radio" name="people" id="two" value="2" required>
+                         <label class='mr-sm-2' for="two">+1</label>
+                    </p>
+                   <p>
+                        <b>Necesidades dietéticas</b>
+                    </p>
+                    <p>
+                        <textarea class='rsvp-text-area' name="diet" placeholder="">{{ person_details_info['diet'] }}</textarea>
+                     </p>
+
+                     <p><input class='buttonlike' type = "submit" value = "Modificar RSVP" /></p>
+                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ro y Rulo</title>
+
+        <!-- Custom styles for this template -->
+        <link href="/static/styles/bootstrapStyles.css" rel="stylesheet">
+        <link href="/static/styles/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+{% for row in rows %}
+    <div class='bordered-list-item'>
+         <p class="bordered-list-line"> ID: {{ row["id"] }}</p>
+         <p class="bordered-list-line">NOMBRE: {{ row["guestName"] }}</p>
+         <p class="bordered-list-line"> EMAIL: {{ row["email"] }}</p>
+          <p class="bordered-list-line">CUANTOS: {{ row["howMany"] }}</p>
+         <p class="bordered-list-line"> DIETA: {{ row["diet"] }} </p>
+         <p class="bordered-list-line"><a href={{ '/rsvp/' + row["id"]}} > EDITAS</a></p>
+         <form action={{ '/rsvp-delete/' + row["id"]}}  method="post">
+             <button name="forwardBtn" type="submit" onclick="alertWhenclicked()">BORRAS</button>
+         </form>
+    </div>
+{% endfor %}
+
+
+<script type="text/javascript">
+    function alertWhenclicked(yourformelement) {
+       if (confirm('Realmente quieres borrar este invitado?')) {
+           yourformelement.submit();
+       } else {
+           return false;
+       }
+    }
+</script>
+</body>
+</html>

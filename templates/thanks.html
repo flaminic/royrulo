@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <section class="page-section about-heading">
+      <div class="container">
+        <div>
+          <div class="row">
+            <div class="col-xl-9 col-lg-10 mx-auto">
+              <div class="bg-faded rounded p-5">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper">Tu respuesta ha sido registrada</span>
+                  <span class="section-heading-lower">Gracias</span>
+                </h2>
+                <p>Puedes cambiar tu respuesta<a href={{ '/rsvp/' + person_id}}> aqui!</a></p>
+                <p><b>Por favor recuerda este link!</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+{% endblock %}
